@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SECRET_KEY: ${SECRET_KEY:-local-compose-secret}
+      DATABASE_URL: sqlite:////data/pr_review_intelligence.db
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      AUTO_CREATE_DB: "true"
+      AUTO_SEED_DEMO: "true"
+      WRITE_OPERATIONS_ENABLED: "true"
+    volumes:
+      - pr-data:/data
+    restart: unless-stopped
+
+volumes:
+  pr-data:

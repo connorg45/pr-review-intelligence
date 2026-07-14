@@ -1,0 +1,46 @@
+.DS_Store
+.idea/
+.vscode/
+
+# Shared local artifacts
+node_modules/
+dist/
+build/
+coverage/
+.mypy_cache/
+.ruff_cache/
+*.log
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.env.*
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+.venv/
+venv/
+
+# Backend local state
+backend/.pytest_cache/
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/instance/*.db
+backend/instance/*.sqlite3
+backend/*.db
+backend/*.sqlite3
+
+# Frontend local state
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Keep docs source, ignore exported screenshots only
+docs/screenshots/*.png
+docs/screenshots/*.jpg
+docs/screenshots/*.jpeg
+docs/screenshots/*.webp

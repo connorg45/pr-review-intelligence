@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: pr-review-intelligence
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pr-review-intelligence-db
+          property: connectionString
+      - key: AUTO_CREATE_DB
+        value: "true"
+      - key: AUTO_SEED_DEMO
+        value: "true"
+      - key: WRITE_OPERATIONS_ENABLED
+        value: "false"
+      - key: APP_VERSION
+        value: "1.0.0"
+
+databases:
+  - name: pr-review-intelligence-db
+    plan: free
+    databaseName: pr_review_intelligence
+    user: pr_review_intelligence
+    ipAllowList: []
